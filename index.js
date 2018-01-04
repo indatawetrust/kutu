@@ -15,7 +15,7 @@ const kutu = (folder, files) => {
   files.map(({name, dir}) =>
     promises.push(
       new Promise((resolve, reject) => {
-        mkdirp(path.join(__dirname, path.dirname(name)), err => {
+        mkdirp(path.dirname(name), err => {
           if (err) reject(err);
           else resolve();
         });
