@@ -31,7 +31,6 @@ const kutu = (folder, files) => {
         promises.push(
           new Promise(resolve => {
             fs.writeFile(name, content, err => {
-              console.log(err)
               resolve();
             });
           })
