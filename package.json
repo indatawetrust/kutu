@@ -1,0 +1,30 @@
+{
+  "name": "kutu",
+  "version": "0.0.1",
+  "description": "multiple file creation package",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indatawetrust/kutu.git"
+  },
+  "keywords": [
+    "file",
+    "create",
+    "fs"
+  ],
+  "author": "indatawetrust",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indatawetrust/kutu/issues"
+  },
+  "homepage": "https://github.com/indatawetrust/kutu#readme",
+  "dependencies": {
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "ava": "^0.24.0"
+  }
+}
