@@ -16,8 +16,10 @@ const kutu = (folder, files) => {
     promises.push(
       new Promise((resolve, reject) => {
         mkdirp(path.dirname(name), err => {
-          if (err) reject(err);
-          else resolve();
+          setTimeout(() => {
+            if (err) reject(err);
+            else resolve();
+          }, 5)
         });
       })
     )

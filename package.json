@@ -1,10 +1,9 @@
 {
   "name": "kutu",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "multiple file creation package",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
   },
   "repository": {
     "type": "git",
