@@ -16,10 +16,16 @@ const kutu = (folder, files) => {
     promises.push(
       new Promise((resolve, reject) => {
         mkdirp(path.dirname(name), err => {
-          setTimeout(() => {
-            if (err) reject(err);
-            else resolve();
-          }, 5)
+          if (err) {
+            reject();
+          } else {
+            const interval = setInterval(() => {
+              if (fs.existsSync(path.dirname(name))) {
+                resolve()
+                clearInterval(interval)
+              } 
+            })
+          }
         });
       })
     )
