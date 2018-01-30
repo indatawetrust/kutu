@@ -43,8 +43,8 @@ const kutu = (folder, files) => {
           new Promise(resolve => {
             if (validUrl.isUri(content)) {
               download(content, { directory: name, filename: _name }, function(err){
-                if (err) throw err
-                console.log("meow")
+                if (err) reject();
+                resolve();
               }) 
             } else {
               fs.writeFile(name, content, err => {
