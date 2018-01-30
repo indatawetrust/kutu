@@ -1,10 +1,9 @@
 {
   "name": "kutu",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "multiple file creation package",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/indatawetrust/kutu.git"
@@ -21,7 +20,9 @@
   },
   "homepage": "https://github.com/indatawetrust/kutu#readme",
   "dependencies": {
-    "mkdirp": "^0.5.1"
+    "download-file": "^0.1.5",
+    "mkdirp": "^0.5.1",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "ava": "^0.24.0"

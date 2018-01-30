@@ -1,11 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
+const validUrl = require('valid-url');
+const download = require('download-file')
 
 const kutu = (folder, files) => {
   let promises = [];
 
   files = files.map(file => {
+    file._name = file.name;
     file.name = path.join(folder, file.name);
     file.dir = path.dirname(file.name);
 
@@ -35,12 +38,19 @@ const kutu = (folder, files) => {
     Promise.all(promises).then(() => {
       promises = [];
 
-      files.map(({name, content}) =>
+      files.map(({name, content, _name}) =>
         promises.push(
           new Promise(resolve => {
-            fs.writeFile(name, content, err => {
-              resolve();
-            });
+            if (validUrl.isUri(content)) {
+              download(content, { directory: name, filename: _name }, function(err){
+                if (err) throw err
+                console.log("meow")
+              }) 
+            } else {
+              fs.writeFile(name, content, err => {
+                resolve();
+              });
+            }
           })
         )
       );
