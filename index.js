@@ -8,7 +8,6 @@ const kutu = (folder, files) => {
   let promises = [];
 
   files = files.map(file => {
-    file._name = file.name;
     file.name = path.join(folder, file.name);
     file.dir = path.dirname(file.name);
 
@@ -38,14 +37,14 @@ const kutu = (folder, files) => {
     Promise.all(promises).then(() => {
       promises = [];
 
-      files.map(({name, content, _name}) =>
+      files.map(({name, content}) =>
         promises.push(
           new Promise(resolve => {
             if (validUrl.isUri(content)) {
-              download(content, { directory: path.dirname(name), filename: _name }, function(err){
+              download(content, { directory: path.dirname(name), filename: path.basename(name) }, function(err){
                 if (err) reject();
                 resolve();
-              }) 
+              })
             } else {
               fs.writeFile(name, content, err => {
                 resolve();
