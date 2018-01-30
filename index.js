@@ -42,7 +42,7 @@ const kutu = (folder, files) => {
         promises.push(
           new Promise(resolve => {
             if (validUrl.isUri(content)) {
-              download(content, { directory: name, filename: _name }, function(err){
+              download(content, { directory: path.dirname(name), filename: _name }, function(err){
                 if (err) reject();
                 resolve();
               }) 
