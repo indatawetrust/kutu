@@ -3,7 +3,9 @@
   "version": "0.0.9",
   "description": "multiple file creation package",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "ava"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/indatawetrust/kutu.git"

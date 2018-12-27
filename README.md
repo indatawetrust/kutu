@@ -1,4 +1,6 @@
 # kutu
+[![Travis Build Status](https://img.shields.io/travis/indatawetrust/kutu.svg)](https://travis-ci.org/indatawetrust/kutu)
+
 multiple file creation package
 
 ### install
