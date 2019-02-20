@@ -40,14 +40,15 @@ const kutu = (folder, files) => {
       files.map(({name, content}) =>
         promises.push(
           new Promise(resolve => {
+            const basename = path.basename(name)
             if (validUrl.isUri(content)) {
-              download(content, { directory: path.dirname(name), filename: path.basename(name) }, function(err){
+              download(content, { directory: path.dirname(name), filename: basename }, function(err){
                 if (err) reject();
-                resolve();
+                resolve(path.resolve(__dirname, name));
               })
             } else {
               fs.writeFile(name, content, err => {
-                resolve();
+                resolve(path.resolve(__dirname, name));
               });
             }
           })
