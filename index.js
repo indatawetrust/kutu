@@ -44,11 +44,11 @@ const kutu = (folder, files) => {
             if (validUrl.isUri(content)) {
               download(content, { directory: path.dirname(name), filename: basename }, function(err){
                 if (err) reject();
-                resolve(path.resolve(__dirname, name));
+                resolve(path.resolve(process.cwd(), name));
               })
             } else {
               fs.writeFile(name, content, err => {
-                resolve(path.resolve(__dirname, name));
+                resolve(path.resolve(process.cwd(), name));
               });
             }
           })
