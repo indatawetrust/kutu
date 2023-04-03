@@ -1,9 +1,8 @@
-import test from 'ava';
-import kutu from './index';
-import fs from 'fs';
-import path from 'path';
+const kutu = require('./index');
+const fs = require('fs');
+const path = require('path');
 
-test('test', async t => {
+test('test', async () => {
   const content = `<html>
       <head>
         <title>kutu</title>
@@ -20,12 +19,11 @@ test('test', async t => {
     },
   ]);
 
-  t.is(fs.existsSync('foo'), true);
-  t.is(fs.existsSync('foo/bar'), true);
-  t.is(fs.existsSync('foo/bar/index.html'), true);
+  expect(fs.existsSync('foo')).toBeTruthy();
+  expect(fs.existsSync('foo/bar')).toBeTruthy();
+  expect(fs.existsSync('foo/bar/index.html')).toBeTruthy();
 
-  t.is(
-    fs.readFileSync(path.join(__dirname, 'foo/bar/index.html'), 'utf8'),
-    content,
-  );
+  expect(
+    fs.readFileSync(path.join(__dirname, 'foo/bar/index.html'), 'utf8')
+  ).toBe(content);
 });

@@ -4,7 +4,7 @@
   "description": "multiple file creation package",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,6 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "ava": "^0.24.0"
+    "jest": "^29.5.0"
   }
 }
